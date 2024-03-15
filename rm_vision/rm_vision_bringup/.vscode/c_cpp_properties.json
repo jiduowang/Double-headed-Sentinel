@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/yang/jun_ws/install/rm_serial_driver/include/**",
+        "/home/yang/jun_ws/install/armor_tracker/include/**",
+        "/home/yang/jun_ws/install/armor_detector/include/**",
+        "/home/yang/jun_ws/install/auto_aim_interfaces/include/**",
+        "/home/yang/dev_ws/install/try_interface/include/**",
+        "/home/yang/dev_ws/install/learning_interface/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/yang/jun_ws/src/rm_auto_aim-main/armor_detector/include/**",
+        "/home/yang/jun_ws/src/rm_auto_aim-main/armor_tracker/include/**",
+        "/home/yang/jun_ws/src/rm_serial_driver/include/**",
+        "/home/yang/jun_ws/src/test/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

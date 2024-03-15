@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="rm_gimbal"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="xyz" default="0.10 0 0.05" />
+  <xacro:arg name="rpy" default="0 0 0" />
+
+  <link name="odom" />
+
+  <link name="odom_link_first" />
+
+  <joint name="odom_joint_first" type="fixed">
+    <origin xyz="0 0.123 -0.140" rpy="$(arg rpy)" />
+    <parent link="odom" />
+    <child link="odom_link_first" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="gimbal_link_first" />
+
+  <joint name="gimbal_joint_first" type="floating">
+    <parent link="odom_link_first" />
+    <child link="gimbal_link_first" />
+  </joint>
+
+  <link name="camera_link_first" />
+
+  <joint name="camera_joint_first" type="fixed">
+    <origin xyz="0.055 0 0.19" rpy="$(arg rpy)" />
+    <parent link="gimbal_link_first" />
+    <child link="camera_link_first" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="camera_optical_frame_first" />
+
+  <joint name="camera_optical_joint_first" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+    <parent link="camera_link_first" />
+    <child link="camera_optical_frame_first" />
+  </joint>
+
+  <link name="odom_link_second" />
+
+  <joint name="odom_joint_second" type="fixed">
+    <origin xyz="0 -0.123 -0.140" rpy="$(arg rpy)" />
+    <parent link="odom" />
+    <child link="odom_link_second" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="gimbal_link_second" />
+
+  <joint name="gimbal_joint_second" type="floating">
+    <parent link="odom_link_second" />
+    <child link="gimbal_link_second" />
+  </joint>
+  
+
+  <link name="camera_link_second" />
+
+  <joint name="camera_joint_second" type="fixed">
+    <origin xyz="0.065 0 0.19" rpy="$(arg rpy)" />
+    <parent link="gimbal_link_second" />
+    <child link="camera_link_second" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="camera_optical_frame_second" />
+
+  <joint name="camera_optical_joint_second" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+    <parent link="camera_link_second" />
+    <child link="camera_optical_frame_second" />
+  </joint>
+  
+
+</robot>

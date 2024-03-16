@@ -254,10 +254,10 @@ std::vector<Armor> ArmorDetectorNode::detectArmors(
 
 void ArmorDetectorNode::createDebugPublishers()
 {
-  lights_data_pub_ =
-    this->create_publisher<auto_aim_interfaces::msg::DebugLights>("/detector_first/debug_lights", 10);
-  armors_data_pub_ =
-    this->create_publisher<auto_aim_interfaces::msg::DebugArmors>("/detector_first/debug_armors", 10);
+  lights_data_pub_ = this->create_publisher<auto_aim_interfaces::msg::DebugLights>(
+    "/detector_first/debug_lights", 10);
+  armors_data_pub_ = this->create_publisher<auto_aim_interfaces::msg::DebugArmors>(
+    "/detector_first/debug_armors", 10);
 
   binary_img_pub_ = image_transport::create_publisher(this, "/detector_first/binary_img");
   number_img_pub_ = image_transport::create_publisher(this, "/detector_first/number_img");

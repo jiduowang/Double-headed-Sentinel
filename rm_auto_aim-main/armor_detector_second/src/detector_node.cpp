@@ -78,7 +78,7 @@ ArmorDetectorNode::ArmorDetectorNode(const rclcpp::NodeOptions & options)
     });
 
   cam_info_sub_ = this->create_subscription<sensor_msgs::msg::CameraInfo>(
-    "/camera_info", rclcpp::SensorDataQoS(),
+    "/camera_info_second", rclcpp::SensorDataQoS(),
     [this](sensor_msgs::msg::CameraInfo::ConstSharedPtr camera_info) {
       cam_center_ = cv::Point2f(camera_info->k[2], camera_info->k[5]);
       cam_info_ = std::make_shared<sensor_msgs::msg::CameraInfo>(*camera_info);
@@ -254,10 +254,10 @@ std::vector<Armor> ArmorDetectorNode::detectArmors(
 
 void ArmorDetectorNode::createDebugPublishers()
 {
-  lights_data_pub_ =
-    this->create_publisher<auto_aim_interfaces::msg::DebugLights>("/detector_second/debug_lights", 10);
-  armors_data_pub_ =
-    this->create_publisher<auto_aim_interfaces::msg::DebugArmors>("/detector_second/debug_armors", 10);
+  lights_data_pub_ = this->create_publisher<auto_aim_interfaces::msg::DebugLights>(
+    "/detector_second/debug_lights", 10);
+  armors_data_pub_ = this->create_publisher<auto_aim_interfaces::msg::DebugArmors>(
+    "/detector_second/debug_armors", 10);
 
   binary_img_pub_ = image_transport::create_publisher(this, "/detector_second/binary_img");
   number_img_pub_ = image_transport::create_publisher(this, "/detector_second/number_img");

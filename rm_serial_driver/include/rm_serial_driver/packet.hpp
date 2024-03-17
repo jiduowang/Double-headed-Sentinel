@@ -16,6 +16,7 @@ struct ReceivePacket
   uint8_t detect_color : 1;  // 0-red 1-blue
   bool reset_tracker : 1;
   uint8_t reserved : 6;
+  float roll;  //大云台
   float roll1;
   float pitch1;
   float yaw1;

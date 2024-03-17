@@ -41,7 +41,8 @@ RMSerialDriver::RMSerialDriver(const rclcpp::NodeOptions & options)
   marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>("/aiming_point", 10);
 
   // Detect parameter client
-  detector_param_client_ = std::make_shared<rclcpp::AsyncParametersClient>(this, "armor_detector_first");
+  detector_param_client_ =
+    std::make_shared<rclcpp::AsyncParametersClient>(this, "armor_detector_first");
 
   // Tracker reset service client
   reset_tracker_client_ = this->create_client<std_srvs::srv::Trigger>("/tracker/reset");
@@ -130,7 +131,6 @@ void RMSerialDriver::receiveData()
           tf_broadcaster_->sendTransform(t1);
 
           geometry_msgs::msg::TransformStamped t2;
-
           t2.header.stamp = this->now() + rclcpp::Duration::from_seconds(timestamp_offset_);
           t2.header.frame_id = "odom_link_second";
           t2.child_frame_id = "gimbal_link_second";
@@ -138,6 +138,15 @@ void RMSerialDriver::receiveData()
           q2.setRPY(packet.roll2, packet.pitch2, packet.yaw2);
           t2.transform.rotation = tf2::toMsg(q2);
           tf_broadcaster_->sendTransform(t2);
+
+          geometry_msgs::msg::TransformStamped t;
+          t.header.stamp = this->now() + rclcpp::Duration::from_seconds(timestamp_offset_);
+          t.header.frame_id = "odom";
+          t2.child_frame_id = "gimbal";
+          tf2::Quaternion q;
+          q.setRPY(packet.roll, 0, 0);
+          t.transform.rotation = tf2::toMsg(q);
+          tf_broadcaster_->sendTransform(t);
 
           if (abs(packet.aim_x) > 0.01) {
             aiming_point_.header.stamp = this->now();

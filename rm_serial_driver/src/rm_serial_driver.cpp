@@ -142,7 +142,7 @@ void RMSerialDriver::receiveData()
           geometry_msgs::msg::TransformStamped t;
           t.header.stamp = this->now() + rclcpp::Duration::from_seconds(timestamp_offset_);
           t.header.frame_id = "odom";
-          t2.child_frame_id = "gimbal";
+          t.child_frame_id = "gimbal";
           tf2::Quaternion q;
           q.setRPY(packet.roll, 0, 0);
           t.transform.rotation = tf2::toMsg(q);

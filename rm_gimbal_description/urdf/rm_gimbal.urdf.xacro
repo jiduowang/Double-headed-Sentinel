@@ -10,7 +10,7 @@
 
   <link name="gimbal"/>
 
-  <joint name="gimbal_joint" type="floating">
+  <joint name="gimbal_joint" type="fixed">
     <parent link="odom" />
     <child link="gimbal" />
   </joint>
@@ -26,7 +26,7 @@
 
   <link name="gimbal_link_first" />
 
-  <joint name="gimbal_joint_first" type="floating">
+  <joint name="gimbal_joint_first" type="fixed">
     <parent link="odom_link_first" />
     <child link="gimbal_link_first" />
   </joint>
@@ -59,7 +59,7 @@
 
   <link name="gimbal_link_second" />
 
-  <joint name="gimbal_joint_second" type="floating">
+  <joint name="gimbal_joint_second" type="fixed">
     <parent link="odom_link_second" />
     <child link="gimbal_link_second" />
   </joint>

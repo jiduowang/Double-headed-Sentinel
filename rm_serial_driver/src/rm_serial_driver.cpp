@@ -144,7 +144,7 @@ void RMSerialDriver::receiveData()
           t.header.frame_id = "odom";
           t.child_frame_id = "gimbal";
           tf2::Quaternion q;
-          q.setRPY(packet.roll, 0, 0);
+          q.setRPY(0.0, 0.0, packet.yaw);
           t.transform.rotation = tf2::toMsg(q);
           tf_broadcaster_->sendTransform(t);
 

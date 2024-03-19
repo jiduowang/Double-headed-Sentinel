@@ -7,8 +7,10 @@
   <xacro:arg name="rpy" default="0 0 0" />
 
   <link name="odom" />
+  <!-- 底盘系 -->
 
   <link name="gimbal"/>
+  <!-- 大云台系 -->
 
   <joint name="gimbal_joint" type="fixed">
     <parent link="odom" />
@@ -16,6 +18,7 @@
   </joint>
 
   <link name="odom_link_first" />
+  <!-- 第一个小云台底盘系(左为第一个，右为第二个) -->
 
   <joint name="odom_joint_first" type="fixed">
     <origin xyz="0 0.123 -0.140" rpy="$(arg rpy)" />
@@ -25,6 +28,7 @@
   </joint>
 
   <link name="gimbal_link_first" />
+  <!-- 第一个小云台系 -->
 
   <joint name="gimbal_joint_first" type="fixed">
     <parent link="odom_link_first" />
@@ -32,6 +36,7 @@
   </joint>
 
   <link name="camera_link_first" />
+  <!-- 第一个相机坐标系 -->
 
   <joint name="camera_joint_first" type="fixed">
     <origin xyz="0.055 0 0.19" rpy="$(arg rpy)" />
@@ -41,6 +46,7 @@
   </joint>
 
   <link name="camera_optical_frame_first" />
+  <!-- 第一个相机图像系 -->
 
   <joint name="camera_optical_joint_first" type="fixed">
     <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
@@ -49,6 +55,7 @@
   </joint>
 
   <link name="odom_link_second" />
+  <!-- 第二个小云台底盘系 -->
 
   <joint name="odom_joint_second" type="fixed">
     <origin xyz="0 -0.123 -0.140" rpy="$(arg rpy)" />
@@ -58,6 +65,7 @@
   </joint>
 
   <link name="gimbal_link_second" />
+<!-- 第二个小云台系 -->
 
   <joint name="gimbal_joint_second" type="fixed">
     <parent link="odom_link_second" />
@@ -66,6 +74,7 @@
   
 
   <link name="camera_link_second" />
+<!-- 第二个相机 -->
 
   <joint name="camera_joint_second" type="fixed">
     <origin xyz="0.065 0 0.19" rpy="$(arg rpy)" />
@@ -75,6 +84,7 @@
   </joint>
 
   <link name="camera_optical_frame_second" />
+  <!-- 第二个图像系 -->
 
   <joint name="camera_optical_joint_second" type="fixed">
     <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />

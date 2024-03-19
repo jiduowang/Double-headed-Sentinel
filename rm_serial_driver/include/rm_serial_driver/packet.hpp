@@ -16,11 +16,11 @@ struct ReceivePacket
   uint8_t detect_color : 1;  // 0-red 1-blue
   bool reset_tracker : 1;
   uint8_t reserved : 6;
-  float yaw;  //大云台
-  float roll1;
+  float yaw;    //大云台
+  float roll1;  //第一个小云台
   float pitch1;
   float yaw1;
-  float roll2;
+  float roll2;  //第二个小云台
   float pitch2;
   float yaw2;
   float aim_x;

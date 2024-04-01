@@ -56,7 +56,8 @@ private:
   using ResultFuturePtr = std::shared_future<std::vector<rcl_interfaces::msg::SetParametersResult>>;
   bool initial_set_param_ = false;
   uint8_t previous_receive_color_ = 0;
-  rclcpp::AsyncParametersClient::SharedPtr detector_param_client_;
+  rclcpp::AsyncParametersClient::SharedPtr detector_param_client_first_;
+  rclcpp::AsyncParametersClient::SharedPtr detector_param_client_second_;
   ResultFuturePtr set_param_future_;
 
   // Service client to reset tracker

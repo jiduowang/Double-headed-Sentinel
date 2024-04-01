@@ -30,7 +30,7 @@
     armor.min_light_ratio: 0.8
 
     classifier_threshold: 0.8
-    ignore_classes: ["negative"]
+    ignore_classes: ["negative","base"]
 
 /armor_detector_second:
   ros__parameters:
@@ -43,7 +43,7 @@
     armor.min_light_ratio: 0.8
 
     classifier_threshold: 0.8
-    ignore_classes: ["negative"]
+    ignore_classes: ["negative","base"]
 
 /armor_tracker:
   ros__parameters:

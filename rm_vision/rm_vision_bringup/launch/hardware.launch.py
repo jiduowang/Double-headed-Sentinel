@@ -81,7 +81,7 @@ def generate_launch_description():
     )
     
     choose = Node(
-        package='choose',
+        package='armors_choose_node',
         executable='choose_node',
         name='choose',
         output='both',

@@ -23,14 +23,14 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 # Add the executable target
-add_executable(armors_choose_node src/armors_choose_node.cpp)
+add_executable(choose_node src/armors_choose_node.cpp)
 
 # Link the library to the executable
-target_link_libraries(armors_choose_node ${PROJECT_NAME})
+target_link_libraries(choose_node ${PROJECT_NAME})
 
 # Install the executable
 install(TARGETS
-  armors_choose_node
+  choose_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

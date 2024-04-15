@@ -1,9 +1,20 @@
-# armor_detector
+# armor_detector_first
+该包主要用于接受第一个相机的信息（默认为云台左边的相机）并做识别处理
 
-- [DetectorNode](#basedetectornode)
+
+- [armor\_detector\_first](#armor_detector_first)
+  - [识别节点](#识别节点)
+    - [DetectorNode](#detectornode)
   - [Detector](#detector)
-    - [NumberClassifier](#numberclassifier)
+    - [preprocessImage](#preprocessimage)
+    - [findLights](#findlights)
+    - [matchLights](#matchlights)
+  - [NumberClassifier](#numberclassifier)
+    - [extractNumbers](#extractnumbers)
+    - [Classify](#classify)
   - [PnPSolver](#pnpsolver)
+
+
 
 ## 识别节点
 
@@ -16,11 +27,11 @@
 包含[PnPSolver](#pnpsolver)
 
 订阅：
-- 相机参数 `/camera_info`
-- 彩色图像 `/image_raw`
+- 相机参数 `/camera_info_first`
+- 彩色图像 `/image_raw_first`
 
 发布：
-- 识别目标 `/detector/armors`
+- 识别目标 `/detector/armors_first`
 
 静态参数：
 - 筛选灯条的参数 `light`

@@ -54,8 +54,8 @@ public:
     camera_name_ = this->declare_parameter("camera_name", "narrow_stereo_first");
     camera_info_manager_ =
       std::make_unique<camera_info_manager::CameraInfoManager>(this, camera_name_);
-    auto camera_info_url =
-      this->declare_parameter("camera_info_url", "package://hik_camera/config/camera_info.yaml");
+    auto camera_info_url = this->declare_parameter(
+      "camera_info_url", "package://hik_camera_first/config/camera_info.yaml");
     if (camera_info_manager_->validateURL(camera_info_url)) {
       camera_info_manager_->loadCameraInfo(camera_info_url);
       camera_info_msg_ = camera_info_manager_->getCameraInfo();

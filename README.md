@@ -1,5 +1,5 @@
 ﻿# Double-headed-Sentinel
-该双头哨兵视觉代码基于rm_vision开发，在此十分感谢https://github.com/chenjunnn的开源代码</br>
+该双头哨兵视觉代码基于rm_vision开发，在此十分感谢https://github.com/chenjunnn</br>
 本项目的基本思路为通过发布两个detector节点，对装甲板进行识别后进行发送装甲板信息，中间会经过choose节点的选择转发到tracker，最后tracker再对装甲板信息进一步处理并向下发送到电控端</br>
 </br>
 
